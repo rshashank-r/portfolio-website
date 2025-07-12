@@ -9,29 +9,11 @@ import Image from 'next/image';
 
 const projects = [
   {
-    title: 'Fraud Detection in Banking Transactions',
-    description: 'A machine learning model integrated with a web interface to provide real-time fraud alerts in banking.',
-    tech: ['Machine Learning', 'Python', 'Flask', 'React', 'WebSockets'],
-    image: 'https://placehold.co/600x400.png',
-    github: 'https://github.com/your-username/fraud-detection',
-    live: '#',
-    aiHint: 'financial security'
-  },
-  {
-    title: 'Newspaper Billing System',
-    description: 'A comprehensive billing and subscription management system for local newspaper vendors, featuring SMS notifications.',
-    tech: ['React', 'Flask', 'SQLite', 'Twilio API'],
-    image: 'https://placehold.co/600x400.png',
-    github: 'https://github.com/your-username/newspaper-billing',
-    live: '#',
-    aiHint: 'billing system'
-  },
-  {
-    title: 'Vehicle Litter Detection System',
+    title: 'Littering Management Using Ai',
     description: 'An AI-powered system that detects littering from vehicles and uses OCR to recognize license plates for reporting.',
-    tech: ['AI', 'Computer Vision', 'OpenCV', 'Python', 'FastAPI'],
-    image: 'https://placehold.co/600x400.png',
-    github: 'https://github.com/your-username/litter-detection',
+    tech: ['AI', 'Computer Vision', 'OpenCV', 'Python', 'Yolo'],
+    image: '/images/litter management.png',
+    github: 'https://github.com/rshashank-r/littering-management-system',
     live: '#',
     aiHint: 'vehicle recognition'
   },

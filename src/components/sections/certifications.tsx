@@ -8,33 +8,20 @@ import Image from 'next/image';
 
 const certifications = [
   {
-    title: 'Prompt Design in Vertex AI',
-    platform: 'Google Cloud Skills Boost',
-    type: 'Skill Badge',
-    image: 'https://placehold.co/400x250.png',
-    aiHint: 'cloud certificate'
-  },
-  {
-    title: 'Responsive Web Design',
-    platform: 'freeCodeCamp',
-    type: 'Certification',
-    image: 'https://placehold.co/400x250.png',
-    aiHint: 'design award'
-  },
-  {
-    title: 'Spring Boot Essentials',
+    title: 'Oops With Python ',
     platform: 'Udemy',
     type: 'Certification',
-    image: 'https://placehold.co/400x250.png',
-    aiHint: 'programming certificate'
+    image: '/images/UC-890b69a6-f1c4-465b-aaee-508ea6e968ab.jpg',
+    aiHint: 'certificate'
   },
   {
-    title: 'Java Programming',
-    platform: 'Coursera',
+    title: 'Full Stack Development Intership ',
+    platform: 'Runshaw Technologies',
     type: 'Certification',
-    image: 'https://placehold.co/400x250.png',
-    aiHint: 'java code'
+    image: '/images/internship_certificate.jpg',
+    aiHint: 'design award'
   },
+ 
 ];
 
 export const Certifications = () => {

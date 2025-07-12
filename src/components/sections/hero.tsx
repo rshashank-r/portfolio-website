@@ -32,7 +32,7 @@ export const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Shashank
+          SHASHANK GOWDA L R
         </motion.h1>
 
         <motion.p 
@@ -41,7 +41,7 @@ export const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          Web Developer | Cloud Enthusiast | AI Explorer
+          CSE Student 
         </motion.p>
         
         <motion.p 
@@ -65,7 +65,7 @@ export const Hero = () => {
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </a>
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+          <a href="https://drive.google.com/file/d/1im3Ljfx1hDgmMpPwsjXvOcSc82fRJ0Fk/view?usp=sharing" target="_blank" rel="noopener noreferrer">
             <Button size="lg" variant="outline" className="w-full sm:w-auto">
               Download Resume
               <Download className="ml-2 h-5 w-5" />

@@ -48,7 +48,7 @@ export const About = () => {
             transition={{ duration: 0.6 }}
           >
             <Image
-              src="https://placehold.co/400x400.png"
+              src="/images/dp.png"
               alt="Shashank"
               width={300}
               height={300}

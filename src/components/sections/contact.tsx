@@ -5,11 +5,8 @@ import { Github, Linkedin, Mail, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { useFormStatus } from 'react-dom';
-import { sendEmail } from '@/app/actions';
-import { useEffect, useRef, useActionState } from 'react';
-import { useToast } from '@/hooks/use-toast';
 import { Card, CardContent } from '@/components/ui/card';
+import { useForm, ValidationError } from '@formspree/react';
 
 const contactLinks = [
   {
@@ -29,39 +26,8 @@ const contactLinks = [
   },
 ];
 
-const initialState = {
-  success: false,
-  message: '',
-};
-
-function SubmitButton() {
-  const { pending } = useFormStatus();
-  return (
-    <Button type="submit" disabled={pending} className="w-full">
-      {pending ? 'Sending...' : 'Send Message'}
-      <Send className="ml-2 h-4 w-4" />
-    </Button>
-  );
-}
-
-
 export const Contact = () => {
-  const [state, formAction] = useActionState(sendEmail, initialState);
-  const { toast } = useToast();
-  const formRef = useRef<HTMLFormElement>(null);
-
-  useEffect(() => {
-    if (state.message) {
-      toast({
-        title: state.success ? 'Success!' : 'Error',
-        description: state.message,
-        variant: state.success ? 'default' : 'destructive',
-      });
-      if (state.success) {
-        formRef.current?.reset();
-      }
-    }
-  }, [state, toast]);
+  const [state, handleSubmit] = useForm("xpwlaalq");
 
   return (
     <section id="contact" className="container mx-auto px-4 py-16 md:py-24">
@@ -103,21 +69,43 @@ export const Contact = () => {
             <div>
                  <Card>
                     <CardContent className="p-6 md:p-8">
-                        <form ref={formRef} action={formAction} className="space-y-4 text-left">
-                            <div className="space-y-2">
-                                <label htmlFor="name" className="text-sm font-medium">Name</label>
-                                <Input id="name" name="name" placeholder="Your Name" required />
-                            </div>
-                             <div className="space-y-2">
-                                <label htmlFor="email" className="text-sm font-medium">Email</label>
-                                <Input id="email" name="email" type="email" placeholder="Your Email" required />
-                            </div>
-                             <div className="space-y-2">
-                                <label htmlFor="message" className="text-sm font-medium">Message</label>
-                                <Textarea id="message" name="message" placeholder="Your Message" required minLength={10} rows={4} />
-                            </div>
-                            <SubmitButton />
-                        </form>
+                       {state.succeeded ? (
+                          <div className="text-center">
+                            <h3 className="text-xl font-semibold mb-2">Thank you!</h3>
+                            <p className="text-muted-foreground">Your message has been sent successfully. I'll get back to you soon.</p>
+                          </div>
+                        ) : (
+                          <form onSubmit={handleSubmit} className="space-y-4 text-left">
+                              <div className="space-y-2">
+                                  <label htmlFor="name" className="text-sm font-medium">Name</label>
+                                  <Input id="name" name="name" placeholder="Your Name" required />
+                              </div>
+                              <div className="space-y-2">
+                                  <label htmlFor="email" className="text-sm font-medium">Email</label>
+                                  <Input id="email" name="email" type="email" placeholder="Your Email" required />
+                                  <ValidationError 
+                                    prefix="Email" 
+                                    field="email"
+                                    errors={state.errors}
+                                    className="text-destructive text-sm"
+                                  />
+                              </div>
+                              <div className="space-y-2">
+                                  <label htmlFor="message" className="text-sm font-medium">Message</label>
+                                  <Textarea id="message" name="message" placeholder="Your Message" required minLength={10} rows={4} />
+                                  <ValidationError 
+                                    prefix="Message" 
+                                    field="message"
+                                    errors={state.errors}
+                                    className="text-destructive text-sm"
+                                  />
+                              </div>
+                              <Button type="submit" disabled={state.submitting} className="w-full">
+                                {state.submitting ? 'Sending...' : 'Send Message'}
+                                <Send className="ml-2 h-4 w-4" />
+                              </Button>
+                          </form>
+                        )}
                     </CardContent>
                 </Card>
             </div>
