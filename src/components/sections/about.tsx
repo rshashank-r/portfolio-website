@@ -5,11 +5,6 @@ import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 
-const skills = [
-  'HTML', 'CSS', 'JavaScript', 'TypeScript', 'Bootstrap', 'React', 
-  'Java', 'Spring Boot', 'Python', 'FastAPI', 'Google Cloud', 'Firebase'
-];
-
 export const About = () => {
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -65,20 +60,6 @@ export const About = () => {
             <motion.p className="text-lg text-muted-foreground mb-6" variants={itemVariants}>
               I’m Shashank, a web developer experienced in crafting responsive UIs using HTML, CSS, JavaScript, TypeScript, and Bootstrap. I also build scalable backend services using Java with Spring Boot and Python with FastAPI. I’m passionate about cloud technologies like Google Cloud and Firebase and enjoy developing intelligent, full-stack web solutions.
             </motion.p>
-            <Card>
-              <CardHeader>
-                <CardTitle>My Skills</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <motion.div className="flex flex-wrap gap-2" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
-                  {skills.map((skill) => (
-                    <motion.div key={skill} variants={itemVariants}>
-                      <Badge variant="secondary" className="text-sm py-1 px-3">{skill}</Badge>
-                    </motion.div>
-                  ))}
-                </motion.div>
-              </CardContent>
-            </Card>
           </motion.div>
         </div>
       </motion.div>
