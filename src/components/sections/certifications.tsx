@@ -49,7 +49,7 @@ export const Certifications = () => {
   };
 
   return (
-    <section id="certifications" className="container mx-auto px-4 py-16 md:py-24">
+    <section id="certifications" className="container mx-auto px-4 py-8 md:py-12">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
