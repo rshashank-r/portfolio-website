@@ -5,11 +5,17 @@ import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { Toaster } from '@/components/ui/toaster';
 import { ScrollToTop } from '@/components/scroll-to-top';
-import { Inter } from 'next/font/google';
+import { Inter, Righteous } from 'next/font/google';
 
 const inter = Inter({ 
   subsets: ['latin'],
   variable: '--font-body',
+});
+
+const righteous = Righteous({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-display',
 });
 
 
@@ -24,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${inter.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${righteous.variable}`}>
       <head />
       <body className="font-body antialiased">
         <ThemeProvider
