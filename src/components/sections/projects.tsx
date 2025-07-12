@@ -61,11 +61,11 @@ export const Projects = () => {
   };
 
   return (
-    <section id="projects" className="container mx-auto px-4 py-16">
+    <section id="projects" className="container mx-auto px-4 py-16 md:py-24">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.6 }}
       >
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
@@ -80,7 +80,7 @@ export const Projects = () => {
         >
           {projects.map((project) => (
             <motion.div key={project.title} variants={itemVariants}>
-              <Card className="h-full flex flex-col overflow-hidden group hover:border-primary transition-all duration-300">
+              <Card className="h-full flex flex-col overflow-hidden group hover:border-primary transition-all duration-300 bg-card/50">
                 <div className="overflow-hidden">
                   <Image
                     src={project.image}
@@ -92,7 +92,7 @@ export const Projects = () => {
                   />
                 </div>
                 <CardHeader>
-                  <CardTitle>{project.title}</CardTitle>
+                  <CardTitle className="text-xl">{project.title}</CardTitle>
                   <CardDescription>{project.description}</CardDescription>
                 </CardHeader>
                 <CardContent className="flex-grow">

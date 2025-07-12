@@ -37,7 +37,7 @@ const initialState = {
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
-    <Button type="submit" disabled={pending}>
+    <Button type="submit" disabled={pending} className="w-full">
       {pending ? 'Sending...' : 'Send Message'}
       <Send className="ml-2 h-4 w-4" />
     </Button>
@@ -64,7 +64,7 @@ export const Contact = () => {
   }, [state, toast]);
 
   return (
-    <section id="contact" className="container mx-auto px-4 py-16">
+    <section id="contact" className="container mx-auto px-4 py-16 md:py-24">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -75,12 +75,13 @@ export const Contact = () => {
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
           Get In <span className="text-primary">Touch</span>
         </h2>
-        <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+        <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
           I&apos;m currently open to new opportunities and collaborations. Feel free to reach out!
         </p>
 
-        <div className="grid md:grid-cols-5 gap-8">
-            <div className="md:col-span-2 flex flex-col items-center justify-center gap-6 text-left">
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div className="flex flex-col items-center justify-center gap-6">
+                <h3 className="text-2xl font-semibold">Connect with me</h3>
                  <div className="flex justify-center items-center gap-4">
                     {contactLinks.map((link) => (
                         <motion.a
@@ -99,9 +100,9 @@ export const Contact = () => {
                 </div>
             </div>
 
-            <div className="md:col-span-3">
+            <div>
                  <Card>
-                    <CardContent className="p-6">
+                    <CardContent className="p-6 md:p-8">
                         <form ref={formRef} action={formAction} className="space-y-4 text-left">
                             <div className="space-y-2">
                                 <label htmlFor="name" className="text-sm font-medium">Name</label>
@@ -113,7 +114,7 @@ export const Contact = () => {
                             </div>
                              <div className="space-y-2">
                                 <label htmlFor="message" className="text-sm font-medium">Message</label>
-                                <Textarea id="message" name="message" placeholder="Your Message" required minLength={10} />
+                                <Textarea id="message" name="message" placeholder="Your Message" required minLength={10} rows={4} />
                             </div>
                             <SubmitButton />
                         </form>

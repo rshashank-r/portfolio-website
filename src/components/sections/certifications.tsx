@@ -61,7 +61,7 @@ export const Certifications = () => {
   };
 
   return (
-    <section id="certifications" className="container mx-auto px-4 py-16">
+    <section id="certifications" className="container mx-auto px-4 py-16 md:py-24">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -80,8 +80,8 @@ export const Certifications = () => {
         >
           {certifications.map((cert, index) => (
             <motion.div key={index} variants={itemVariants}>
-              <Card className="h-full flex flex-col hover:shadow-lg hover:border-primary transition-all duration-300 overflow-hidden">
-                <div className="relative h-48 w-full">
+              <Card className="h-full flex flex-col group hover:shadow-lg hover:border-primary transition-all duration-300 bg-card/50">
+                <div className="relative h-48 w-full overflow-hidden">
                    <Image
                       src={cert.image}
                       alt={`${cert.title} certificate`}
@@ -95,14 +95,14 @@ export const Certifications = () => {
                   <CardHeader className="p-0 mb-4">
                     <div className="flex items-start justify-between">
                       <div>
-                        <CardTitle>{cert.title}</CardTitle>
+                        <CardTitle className="text-xl">{cert.title}</CardTitle>
                         <CardDescription>{cert.platform}</CardDescription>
                       </div>
-                      <Award className="h-8 w-8 text-accent flex-shrink-0 ml-4"/>
+                      <Award className="h-8 w-8 text-primary flex-shrink-0 ml-4"/>
                     </div>
                   </CardHeader>
                   <CardContent className="p-0 flex-grow">
-                    <Badge variant="default" className="bg-accent text-accent-foreground">{cert.type}</Badge>
+                    <Badge variant="secondary">{cert.type}</Badge>
                   </CardContent>
                 </div>
               </Card>

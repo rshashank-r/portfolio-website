@@ -29,7 +29,7 @@ export const About = () => {
   };
 
   return (
-    <section id="about" className="container mx-auto px-4 py-16">
+    <section id="about" className="container mx-auto px-4 py-16 md:py-24">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -58,7 +58,7 @@ export const About = () => {
           </motion.div>
           <motion.div className="md:col-span-2" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }}>
             <motion.p className="text-lg text-muted-foreground mb-6" variants={itemVariants}>
-              I’m Shashank, a web developer experienced in crafting responsive UIs using HTML, CSS, JavaScript, TypeScript, and Bootstrap. I also build scalable backend services using Java with Spring Boot and Python with FastAPI. I’m passionate about cloud technologies like Google Cloud and Firebase and enjoy developing intelligent, full-stack web solutions.
+              I’m Shashank, a web developer experienced in crafting responsive UIs and building scalable backend services. I’m passionate about cloud technologies like Google Cloud and Firebase and enjoy developing intelligent, full-stack web solutions.
             </motion.p>
           </motion.div>
         </div>
