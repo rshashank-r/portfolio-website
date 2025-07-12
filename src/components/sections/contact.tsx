@@ -11,17 +11,17 @@ import { useForm, ValidationError } from '@formspree/react';
 const contactLinks = [
   {
     name: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/your-profile',
+    href: 'https://www.linkedin.com/in/shashank-gowda-l-r-8896a6268?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
     icon: <Linkedin className="h-6 w-6" />,
   },
   {
     name: 'GitHub',
-    href: 'https://github.com/your-username',
+    href: 'https://github.com/rshashank-r',
     icon: <Github className="h-6 w-6" />,
   },
   {
     name: 'Email',
-    href: 'mailto:your.email@gmail.com',
+    href: 'mailto:your.shashankgowdar2406@gmail.com',
     icon: <Mail className="h-6 w-6" />,
   },
 ];
@@ -42,7 +42,7 @@ export const Contact = () => {
           Get In <span className="text-primary">Touch</span>
         </h2>
         <p className="text-lg text-muted-foreground mb-12 max-w-2xl mx-auto">
-          I&apos;m currently open to new opportunities and collaborations. Feel free to reach out!
+        I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of an amazing team. Feel free to send me a message.
         </p>
 
         <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-16 items-center">

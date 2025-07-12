@@ -5,6 +5,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Award } from 'lucide-react';
 import Image from 'next/image';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 
 const certifications = [
   {
@@ -67,32 +68,51 @@ export const Certifications = () => {
         >
           {certifications.map((cert, index) => (
             <motion.div key={index} variants={itemVariants}>
-              <Card className="h-full flex flex-col group hover:shadow-lg hover:border-primary transition-all duration-300 bg-card/50">
-                <div className="relative h-48 w-full overflow-hidden">
-                   <Image
-                      src={cert.image}
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Card className="h-full flex flex-col group hover:shadow-lg hover:border-primary transition-all duration-300 bg-card/50 cursor-pointer">
+                    <div className="relative h-48 w-full overflow-hidden">
+                       <Image
+                          src={cert.image}
+                          alt={`${cert.title} certificate`}
+                          layout="fill"
+                          objectFit="cover"
+                          className="group-hover:scale-105 transition-transform duration-300"
+                          data-ai-hint={cert.aiHint}
+                        />
+                    </div>
+                    <div className="flex flex-col flex-grow p-6">
+                      <CardHeader className="p-0 mb-4">
+                        <div className="flex items-start justify-between">
+                          <div>
+                            <CardTitle className="text-xl">{cert.title}</CardTitle>
+                            <CardDescription>{cert.platform}</CardDescription>
+                          </div>
+                          <Award className="h-8 w-8 text-primary flex-shrink-0 ml-4"/>
+                        </div>
+                      </CardHeader>
+                      <CardContent className="p-0 flex-grow">
+                        <Badge variant="secondary">{cert.type}</Badge>
+                      </CardContent>
+                    </div>
+                  </Card>
+                </DialogTrigger>
+                <DialogContent className="max-w-3xl">
+                  <DialogHeader>
+                    <DialogTitle>{cert.title}</DialogTitle>
+                    <DialogDescription>{cert.platform}</DialogDescription>
+                  </DialogHeader>
+                  <div className="relative aspect-video mt-4">
+                    <Image 
+                      src={cert.image} 
                       alt={`${cert.title} certificate`}
                       layout="fill"
-                      objectFit="cover"
-                      className="group-hover:scale-105 transition-transform duration-300"
+                      objectFit="contain" 
                       data-ai-hint={cert.aiHint}
                     />
-                </div>
-                <div className="flex flex-col flex-grow p-6">
-                  <CardHeader className="p-0 mb-4">
-                    <div className="flex items-start justify-between">
-                      <div>
-                        <CardTitle className="text-xl">{cert.title}</CardTitle>
-                        <CardDescription>{cert.platform}</CardDescription>
-                      </div>
-                      <Award className="h-8 w-8 text-primary flex-shrink-0 ml-4"/>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="p-0 flex-grow">
-                    <Badge variant="secondary">{cert.type}</Badge>
-                  </CardContent>
-                </div>
-              </Card>
+                  </div>
+                </DialogContent>
+              </Dialog>
             </motion.div>
           ))}
         </motion.div>
