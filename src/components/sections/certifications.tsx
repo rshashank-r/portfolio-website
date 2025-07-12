@@ -4,27 +4,36 @@ import { motion } from 'framer-motion';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Award } from 'lucide-react';
+import Image from 'next/image';
 
 const certifications = [
   {
     title: 'Prompt Design in Vertex AI',
     platform: 'Google Cloud Skills Boost',
     type: 'Skill Badge',
+    image: 'https://placehold.co/400x250.png',
+    aiHint: 'cloud certificate'
   },
   {
     title: 'Responsive Web Design',
     platform: 'freeCodeCamp',
     type: 'Certification',
+    image: 'https://placehold.co/400x250.png',
+    aiHint: 'design award'
   },
   {
     title: 'Spring Boot Essentials',
     platform: 'Udemy',
     type: 'Certification',
+    image: 'https://placehold.co/400x250.png',
+    aiHint: 'programming certificate'
   },
   {
     title: 'Java Programming',
     platform: 'Coursera',
     type: 'Certification',
+    image: 'https://placehold.co/400x250.png',
+    aiHint: 'java code'
   },
 ];
 
@@ -67,23 +76,35 @@ export const Certifications = () => {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.1 }}
         >
           {certifications.map((cert, index) => (
             <motion.div key={index} variants={itemVariants}>
-              <Card className="h-full hover:shadow-lg hover:border-primary transition-all duration-300">
-                <CardHeader>
-                  <div className="flex items-start justify-between">
-                    <div>
-                      <CardTitle>{cert.title}</CardTitle>
-                      <CardDescription>{cert.platform}</CardDescription>
+              <Card className="h-full flex flex-col hover:shadow-lg hover:border-primary transition-all duration-300 overflow-hidden">
+                <div className="relative h-48 w-full">
+                   <Image
+                      src={cert.image}
+                      alt={`${cert.title} certificate`}
+                      layout="fill"
+                      objectFit="cover"
+                      className="group-hover:scale-105 transition-transform duration-300"
+                      data-ai-hint={cert.aiHint}
+                    />
+                </div>
+                <div className="flex flex-col flex-grow p-6">
+                  <CardHeader className="p-0 mb-4">
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <CardTitle>{cert.title}</CardTitle>
+                        <CardDescription>{cert.platform}</CardDescription>
+                      </div>
+                      <Award className="h-8 w-8 text-accent flex-shrink-0 ml-4"/>
                     </div>
-                    <Award className="h-8 w-8 text-accent"/>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <Badge variant="default" className="bg-accent text-accent-foreground">{cert.type}</Badge>
-                </CardContent>
+                  </CardHeader>
+                  <CardContent className="p-0 flex-grow">
+                    <Badge variant="default" className="bg-accent text-accent-foreground">{cert.type}</Badge>
+                  </CardContent>
+                </div>
               </Card>
             </motion.div>
           ))}
